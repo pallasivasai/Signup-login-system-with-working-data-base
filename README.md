@@ -96,3 +96,20 @@ For production authentication, use password hashing with `password_hash()` / `pa
 
 - [GitHub Repository](https://github.com/pallasivasai/Signup-login-system-with-working-data-base)
 - [SQL schema](https://github.com/pallasivasai/Signup-login-system-with-working-data-base/blob/main/sai.sql)
+
+
+## 🏗️ Architecture
+
+```mermaid
+flowchart TD
+    A[Registration Form] --> B[connect.php]
+    B --> C[MySQL / MariaDB]
+    C --> D[Registration Table]
+    E[Login Form] --> F[login.php]
+    F --> C
+    F --> G[Find User by Email]
+    G --> H[Password Comparison]
+    H --> I[Login Result]
+```
+
+> **Current-code note:** the repository documents a database-name mismatch between the registration connection (`sai`) and login connection (`test`), so the two paths should be aligned before treating them as one production-ready flow.
